@@ -1,4 +1,4 @@
-import numpy as np
+import numpy
 
 from QueueSystemMM1 import QueueSystemMM1
 
@@ -27,18 +27,18 @@ class QueueNetwork:
             # ToDo - добавить проверку на k
             #if()
 
-            I = np.eye(self.L, dtype=int)
+            I = numpy.eye(self.L, dtype=int)
 
             A = Teta.transpose() - I
 
-            A[L - 1, :] = np.ones(L, dtype=int)
+            A[L - 1, :] = numpy.ones(L, dtype=int)
 
-            B = np.zeros(L)
+            B = numpy.zeros(L)
             B[L - 1] = 1
 
-            Omega = np.linalg.solve(A, B)
+            Omega = numpy.linalg.solve(A, B)
 
-            self.Lambda = np.zeros(L)
+            self.Lambda = numpy.zeros(L)
             self.Lambda[0] = lambda0
 
             print(A)
