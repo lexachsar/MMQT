@@ -69,19 +69,24 @@ for mu[1] in range(1, 10):
     #  Рассчет м.о. длительности пребывания требований в системе
     Mu.append(1 / (mu - lambdai))
 
-print(Mn)
-
-print(Mu)
+Mn = numpy.array(Mn)
+Mu = numpy.array(Mu)
 
 dpi = 80
 fig = plt.figure(dpi=dpi, figsize=(512 / dpi, 384 / dpi))
-plt.plot(mus1, Mn)
+for i in range(0, 7):
+    plt.plot(mus1, Mn[:, i], label='System ' + str(i))
+
 plt.xlabel('mu1')
 plt.ylabel('Mn')
+plt.legend()
 fig.savefig('Mn_mu1_graph.png')
 
 fig.clear()
-plt.plot(mus1, Mu)
+for i in range(0, 7):
+    plt.plot(mus1, Mu[:, i], label='System ' + str(i) )
+
 plt.xlabel('mu1')
 plt.ylabel('Mu')
+plt.legend()
 fig.savefig('Mu_mu1_graph.png')
