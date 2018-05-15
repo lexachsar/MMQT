@@ -70,15 +70,29 @@ for lambda0 in numpy.arange(0, 1, step):
     #  Рассчет м.о. длительности пребывания требований в системе
     Mu.append( 1 / ( mu - lambdai ) )
 
-print(Mn)
+Mn = numpy.array(Mn)
+Mu = numpy.array(Mu)
 
+print(Mn)
 print(Mu)
+
 
 dpi = 80
 fig = plt.figure(dpi = dpi, figsize = (512 / dpi, 384 / dpi) )
-plt.plot(lambdas0, Mn)
+
+for i in range(0, 7):
+    plt.plot(lambdas0, Mn[:, i], label='System ' + str(i) )
+
+plt.xlabel('lambda0')
+plt.ylabel('Mn')
+plt.legend()
 fig.savefig('Mn_lambda0_graph.png')
 
 fig.clear()
-plt.plot(lambdas0, Mu)
+for i in range(0, 7):
+    plt.plot(lambdas0, Mu[:, i], label='System ' + str(i) )
+
+plt.xlabel('lambda0')
+plt.ylabel('Mu')
+plt.legend()
 fig.savefig('Mu_lambda0_graph.png')
