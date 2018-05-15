@@ -73,10 +73,6 @@ for lambda0 in numpy.arange(0, 1, step):
 Mn = numpy.array(Mn)
 Mu = numpy.array(Mu)
 
-print(Mn)
-print(Mu)
-
-
 dpi = 80
 fig = plt.figure(dpi = dpi, figsize = (512 / dpi, 384 / dpi) )
 
